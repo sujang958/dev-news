@@ -9,9 +9,14 @@ const CreateAccount: NextPage<{ target: string }> = ({ target }) => {
   const [email, setEmail] = useState("Loading...")
   const [nick, setNick] = useState("")
   const handleCreate = useCallback(async () => {
-    API.post(`/accounts/users/${email}`, {
-      id: nick,
-    })
+    API.post(
+      `/accounts/users/${email}`,
+      {
+        id: nick,
+        idToken: String(localStorage.getItem("idToken")),
+      },
+      { headers: { "Content-Type": "application/json" } }
+    )
       .then(({ data }) => {
         console.log(data)
         Router.push(target)

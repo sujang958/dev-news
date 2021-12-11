@@ -1,15 +1,10 @@
 module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
-    backgroundColor: (theme) => ({
-      ...theme("colors"),
-      darkLightBlue: "#3a0ca3",
-    }),
-    extend: {},
-  },
-  variants: {
-    extend: {},
+    extend: { backgroundColor: { darkLightBlue: "#3a0ca3" } },
   },
   plugins: [],
 }

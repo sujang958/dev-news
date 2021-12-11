@@ -4,11 +4,14 @@ import {
   signInWithPopup,
 } from "@firebase/auth"
 import { NextPage } from "next"
+import Google from "../../public/img/google.svg"
+import Github from "../../public/img/github.svg"
 import { useRouter } from "next/router"
 import { useCallback, useEffect, useState } from "react"
 import CreateAccount from "../../components/createAccount"
 import { auth, provider } from "../../firebase/auth"
 import API from "../../utils/api"
+import { browserSessionPersistence, setPersistence } from "firebase/auth"
 
 const SignIn: NextPage = () => {
   const router = useRouter()
@@ -53,6 +56,7 @@ const SignIn: NextPage = () => {
         console.log(r)
         setLoading(false)
       })
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -65,22 +69,26 @@ const SignIn: NextPage = () => {
     )
 
   return (
-    <div className="py-10 px-20">
+    <div className="flex flex-col text-center items-center pt-20 px-20">
       <div className="pt-10">
         <p className="text-5xl font-bold">Sign In</p>
-        {/* <p className="text-xl p-0.5">
-          Don&apos;t you have an account?&nbsp;
-          <span className="underline text-gray-700 hover:text-black">
-            <Link href="/accounts/sign_up">Sign Up</Link>
-          </span>
-        </p> */}
       </div>
-      <button
-        onClick={() => signInWithGoogle()}
-        className="bg-blue-700 text-white mt-6 py-3.5 px-10 rounded-lg text-lg"
-      >
-        Sign In With Google
-      </button>
+      <div className="pt-5 flex flex-row justify-center gap-4">
+        <button onClick={() => signInWithGoogle()}>
+          <br />
+          <Google />
+        </button>
+        <button className="px-3.5" onClick={() => alert("comming soon")}>
+          <br />
+          <Github />
+        </button>
+      </div>
+      <div className="">&nbsp;</div>
+      <div className="border-t border-black pt-2.5">
+        <p className="text-sm underline cursor-pointer text-gray-600">
+          Offer me another login provider
+        </p>
+      </div>
     </div>
   )
 }
