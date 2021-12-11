@@ -13,10 +13,10 @@ const Header: FC = () => {
           </div>
           <div className="flex flex-row mt-1 gap-x-4">
             <div>
-              <p className="text-base cursor-pointer hover:underline">Latest</p>
+              <p className="text-base cursor-pointer hover:underline"><Link href="/">Latest</Link></p>
             </div>
             <div>
-              <p className="text-base cursor-pointer hover:underline">Prmt</p>
+              <p className="text-base cursor-pointer hover:underline"><Link href="/prmt">Prmt</Link></p>
             </div>
             <div>
               <p className="text-base cursor-pointer hover:underline">
